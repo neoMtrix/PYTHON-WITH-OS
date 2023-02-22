@@ -1,0 +1,70 @@
+So we've talked about
+the benefits of automation and the things
+we need to be prepared for. Let's now look at an example of something we can
+automate using Python. Say for example that you wanted to check the
+health of your computer. This can call for a lot
+of different checks, verifying that there
+is enough disk space, that the processor
+isn't an overloaded, that it has the latest
+security updates, and that it's running
+services it's supposed to. To verify all of this, we need to know how to
+check each of these values. Of course, we'll do
+it by using some of the handy modules
+available to us. For example, we can
+use a shutil module and a disk_usage function to check the current
+available disk space. Let's try it out in
+the interpreter. We'll start by importing
+the shutil module, then get the disk_usage. Let's print the variable
+and see what's in it. Cool, so we get the total
+number of bytes on disk, the amount that's used and
+the amount that's free. We can calculate
+the percentage of free disk space by
+dividing the number of bytes free by the total and
+multiplying that by 100. All right. But what
+about cpu_usage? For this, we can use another
+module called psutil. This includes a
+cpu_percent function that returns a number showing how much of the CPU is being used. The amount of CPU used at each
+instant can change a lot, since processes are starting
+and finishing all the time. So this function receives an interval of
+seconds and returns an average percentage of usage in that interval.
+Let's try it out. We'll start by importing
+the psutil module. Then call the cpu_percent
+function with 0.1 seconds. When we're using an
+interactive interpreter, we can use the arrows
+in our keyboard to get back the lines
+that we wrote before. So using the up arrow, let's execute the same
+line a few times. As you can see, this
+can vary a lot. Let's try it with 0.5 seconds. See how it's taking
+longer to finish than previous calls but the numbers are more similar to each other? That's because the
+function needs to wait for the given time to
+calculate the average. So we've done a
+bunch of research, now we can write our
+health checking script. Will kick off with a script
+that'll do two health checks. First, we'll set our script to use the Python interpreter
+with a shebang. We know that we'll use
+shutil and psutil, so let's import
+those two modules. Let's first define
+a check_disk_usage function that will receive a distant check and
+return true if there's more than 20 percent free
+or false if it's less. Now let's write another function
+called check_cpu_usage. In this case, we'll check the
+usage for a whole second. We'll say the machine is healthy, it a cpu_usage is
+less than 75 percent. Great, we have our two functions. Let's now add the main body
+of our script where we'll check if either of those two
+functions returns false. So here, we're just printing a message that
+the user will see. We'll improve on the
+script later on once we've learned better ways of notifying our system administrators. Were almost done.
+Let's save our script, make it executable, and run it. So there you have it,
+everything is okay, which seems like a great point
+to wrap up this exercise. All along this course, we'll explore practical
+automation examples which you'll be able
+to apply in your job. As we talk about the additional
+functionality available, we'll be able to extend
+our automation knowledge some more and more areas.
+So how are you feeling? Some of this stuff
+is a little tricky, and learning about
+automation calls for a little bit of manual work. The irony isn't lost on us. So roll up your sleeves and practice these scripts
+on your computer. Also feel free to rewind and re-watch if you felt a
+little loss anywhere. Whether you need to do a
+little review or you're about to jump straight into
+the next practice quiz, you're doing great. Keep at it.

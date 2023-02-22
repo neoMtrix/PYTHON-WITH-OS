@@ -1,0 +1,22 @@
+# Both in Python and Bash, for loops are used to iterate over a sequence of elements. You might remember that the key to for loops is that they let us perform an operation on each of the elements in a sequence. In Python, the sequences are data structures like a list or a tuple or a string. In Bash, we construct these sequences just by listing the elements with spaces in between. Let's check this out using a very simple example. 
+cat fruits.sh
+# In this case, we're iterating over three different elements that have the names of fruits. See how the for loop uses the same do done structure that the while loop used before? Now, let's execute this script and check that it does what we expect it to do. All right. That seems simple enough but it's low-hanging fruit.
+./fruits.sh
+# Tasty for sure, but not that useful. We called out in an earlier video that in Bash, we can use globs like star and question mark to create lists of files. These lists are separated by spaces and so we can use them in our loops to iterate over a list of files that match a criteria, like all the files that end in.PDF, all files that start with IMG or whatever it is that we need. Let's use a practical example to see this in action. Imagine that you're migrating your company's website from one web server software to another. Your web content is stored in a bunch of files that all end in uppercase HTM, and the new software requires that they all end in lowercase HTML, disaster. You can manually rename them one by one using the MV command, but that could get really old really fast. You'd likely end up making mistakes after the first few commands. Instead, you could do the same thing with short Bash script. First, let's check out our files.
+cd old_websites/
+ls -l
+# Looks like we have five files that we need to rename. So how can we extract the part before the extension? There's a command called basename that can help us with that.
+basename index.HTM .HTM
+# This command takes a filename and an extension and then returns the name without the extension. Just like that, we're ready to write our script and rename the files.
+# We'll start as usual by including the Bash Shebang line.
+# Our script we'll iterate with a for loop through all the files that end with.HTM. So now for each file we want to call basename to keep the part of the file that we care about. We'll store that in a variable called name.
+# Easy enough, and now we'll use dollar sign parentheses to call the command and keep the output.
+# We're surrounding our file variable with double-quotes to allow the command to work even if the file has spaces in its name. This is a good practice in Bash scripts when dealing with file names or any variables that could include spaces. Now, we'll call the MV command with the old and new names.
+# In this case, we use double quotes for both parameters. Again, we want to make sure that it works correctly for file names with spaces, and that's all that our loop needs to do. We'll finish our loop of the dunki word, and we're done, almost. We still need to run our script to see if it does what it should. Now, let me share a trick with you that might save you a few headaches. Whenever you're going to run a script like this that modifies the files in your file system, it's a really good idea to first run it without actually modifying the file system. This will catch any possible bugs that the script might have. So instead of just running it as it is right now, we'll add an echo in front of the MV command. This means that instead of actually renaming, our script we'll print the renaming that it plans to do.
+# Now, let's save the script, make it executable, and run it.
+atom
+chmod +x rename.sh
+./rename.sh
+# Excellent. Our script printed the actions that you would take and it looks like it's going to do the right thing. So let's remove the echo and make it actually rename the files.
+./rename.sh
+# This time it didn't print anything, that's expected because these commands don't print anything when they succeed. Let's check that our rename work by listing the contents of our directory. Yes, we managed to rename all of our files successfully, and they all lived happily ever after. Hopefully by now, you're starting to see how you can benefit from using Bash scripts when dealing with files and system commands, especially to compliment your Python scripts. Up next, we'll use all this Bash scripting knowledge to solve an interesting system administration challenge. Stay tuned.

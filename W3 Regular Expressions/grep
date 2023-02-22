@@ -1,0 +1,22 @@
+NOTE: /usr/share/dict/words | This file contains one word per line
+
+>>>> grep thon /usr/share/dict/words
+match the string "thon" in the list words inside the file
+show words that all contain the string thon somewhere inside of them 
+passing in grep is case sensitive
+needs to be matched exactly
+
+>>>> grep -i thon /usr/share/dict/words
+match a string regardless of case
+
+>>>> grep l.rts /usr/share/dict/words
+dot in our pattern was substituted by different letter
+dot is a wildcard
+
+>>>> grep ^fruit /usr/share/dict/words
+match the words in the file that starts with "fruit"
+The circumflex(^) indicates the beginning
+
+>>>> grep cat$ /usr/share/dict/words
+match the words in the file that ends with "cat"
+the dollar($) sign indicates the end of the line
